@@ -6,8 +6,8 @@ from settings.database import DATABASE_URL
 
 def setup_routes(app: FastAPI):
     core_router = APIRouter()
-    core_router.include_router(auth_router, prefix='/auth', tags=['auth'])
-    core_router.include_router(users_router, prefix='/users', tags=['users'])
+    core_router.include_router(auth_router, prefix='/auth', tags=['Auth'])
+    core_router.include_router(users_router, prefix='/users', tags=['Users'])
     app.include_router(core_router, prefix='/api')
 
 def setup_database(app: FastAPI):
