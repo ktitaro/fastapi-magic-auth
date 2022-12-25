@@ -1,0 +1,11 @@
+# Mac OS
+.DS_Store
+
+# Python
+venv
+
+# Node.js
+node_modules
+
+# Project
+.env
