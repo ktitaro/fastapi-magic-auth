@@ -1,6 +1,5 @@
 from tortoise import models, fields
 
-
 class User(models.Model):
     id = fields.IntField(pk=True)
     bio = fields.TextField(max_length=255, null=True)

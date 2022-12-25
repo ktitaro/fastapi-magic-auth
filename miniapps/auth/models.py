@@ -2,7 +2,6 @@ from tortoise import models, fields
 from miniapps.users.models import *
 from toolbox.tokens import *
 
-
 class BaseToken(models.Model):
     id = fields.UUIDField(pk=True)
     owner = fields.OneToOneField('models.User')
@@ -10,7 +9,6 @@ class BaseToken(models.Model):
 
     class Meta:
         abstract = True
-
 
 class LoginToken(BaseToken):
     @staticmethod
@@ -37,7 +35,6 @@ class LoginToken(BaseToken):
             await ltok.delete()
             return True
         return False
-
 
 class RefreshToken(BaseToken):
     @staticmethod

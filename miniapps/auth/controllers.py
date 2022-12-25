@@ -6,9 +6,7 @@ from miniapps.auth.schemas import *
 from toolbox.tokens import *
 from toolbox.mailer import *
 
-
 router = APIRouter()
-
 
 @router.post('/login', response_model=LoginOut)
 async def login(input: LoginIn):
@@ -16,7 +14,6 @@ async def login(input: LoginIn):
     ltok = await LoginToken.issue(owner=user)
     send_magic_link(ltok.token)
     return LoginOut(success=True)
-
 
 @router.post('/verify', response_model=VerifyOut)
 async def verify(input: VerifyIn):
@@ -44,7 +41,6 @@ async def verify(input: VerifyIn):
         access_token=atok,
         refresh_token=rtok.token,
     )
-
 
 @router.post('/refresh', response_model=RefreshOut)
 async def refresh(input: RefreshIn):
